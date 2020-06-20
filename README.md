@@ -1,20 +1,20 @@
 <h1 align="center">react-css-theme-switcher</h1>
 <p>
-  <a href="https://www.npmjs.com/package/react-theme-switcher" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/react-theme-switcher.svg">
+  <a href="https://www.npmjs.com/package/react-css-theme-switcher" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/react-css-theme-switcher.svg">
   </a>
   <img src="https://img.shields.io/badge/node-%3E%3D10-blue.svg" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
-  <a href="https://codecov.io/gh/Jfelix61/react-theme-switcher" target="_blank">
-    <img alt="codecov" src="https://codecov.io/gh/Jfelix61/react-theme-switcher/branch/master/graph/badge.svg" />
+  <a href="https://codecov.io/gh/Jfelix61/react-css-theme-switcher" target="_blank">
+    <img alt="codecov" src="https://codecov.io/gh/Jfelix61/react-css-theme-switcher/branch/master/graph/badge.svg" />
   </a>
    <a href="http://makeapullrequest.com" target="_blank">
     <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" />
   </a>
+
 </p>
-[![Build Status][build-badge]][build]
 
 > 💫 Switch between CSS themes using React
 
