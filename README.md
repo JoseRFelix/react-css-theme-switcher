@@ -76,7 +76,7 @@ const Component = () => {
 };
 ```
 
-### Avoid CSS Override
+### Avoiding CSS Override
 
 react-css-theme-switcher provided a way to avoid collision with other stylesheets or appended styles providing a where to inject the styles. To achieve this add an HTML comment like `<!--inject-styles-here-->` and then provide `'inject-styles-here'` in the insertionPoint prop in `ThemeSwitcherProvider`.
 
