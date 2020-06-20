@@ -13,7 +13,7 @@ jobs:
       - run: yarn test
 
       - name: Upload coverage to Codecov
-        uses: ./
+        uses: codecov/codecov-action@v1
         with:
           flags: unittest
           name: codecov-1
