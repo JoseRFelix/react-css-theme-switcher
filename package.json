@@ -33,7 +33,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-theme-switcher",
+  "name": "react-css-theme-switcher",
   "description": "Switch between CSS themes using React",
   "author": "Jfelix61",
   "module": "dist/react-theme-switcher.esm.js",

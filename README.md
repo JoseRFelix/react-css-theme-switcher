@@ -1,4 +1,4 @@
-<h1 align="center">react-theme-switcher</h1>
+<h1 align="center">react-css-theme-switcher</h1>
 <p>
   <a href="https://www.npmjs.com/package/react-theme-switcher" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/react-theme-switcher.svg">
@@ -12,6 +12,9 @@
   </a>
    <a href="http://makeapullrequest.com" target="_blank">
     <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" />
+  </a>
+  <a href="build" target="_blank">
+    <img alt="Build Status" src="build-badge" />
   </a>
 </p>
 
