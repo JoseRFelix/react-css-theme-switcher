@@ -5,13 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-
       - name: Install Modules
       - run: yarn
-
       - name: Run tests
       - run: yarn test
-
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
