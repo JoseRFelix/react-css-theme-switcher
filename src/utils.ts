@@ -1,11 +1,3 @@
-export function isBrowser() {
-  return (
-    typeof window !== 'undefined' &&
-    typeof window.document !== 'undefined' &&
-    typeof window.document.createElement !== 'undefined'
-  );
-}
-
 export function findCommentNode(comment: string) {
   const head = document.head;
   for (let i = 0; i < head.childNodes.length; i++) {
@@ -23,4 +15,18 @@ export function arrayToObject(array: string[]): Record<any, string> {
   return obj;
 }
 
-export const noop = () => {};
+export function createLinkElement(attributes: Record<string, any>) {
+  const linkElement = document.createElement('link');
+
+  for (const [attribute, value] of Object.entries(attributes)) {
+    if (attribute === 'onload') {
+      linkElement.onload = attributes.onload;
+      continue;
+    }
+
+    // @ts-ignore
+    linkElement[attribute] = value;
+  }
+
+  return linkElement;
+}

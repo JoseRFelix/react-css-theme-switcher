@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { findCommentNode, arrayToObject } from './utils';
+import { findCommentNode, arrayToObject, createLinkElement } from './utils';
 
 enum Status {
   idle = 'idle',
@@ -20,7 +20,7 @@ const ThemeSwitcherContext = React.createContext<
 
 interface Props {
   themeMap: Record<any, string>;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   insertionPoint?: string;
   id?: string;
   defaultTheme?: string;
@@ -31,7 +31,7 @@ export function ThemeSwitcherProvider({
   themeMap,
   insertionPoint,
   defaultTheme,
-  id = 'theme-style',
+  id = 'current-theme-style',
   attr = 'data-theme',
   ...rest
 }: Props) {
@@ -39,7 +39,7 @@ export function ThemeSwitcherProvider({
   const [currentTheme, setCurrentTheme] = React.useState<string>();
 
   const insertStyle = React.useCallback(
-    (linkElement: HTMLElement) => {
+    (linkElement: HTMLElement): HTMLElement | void => {
       if (insertionPoint) {
         const insertionPointElement = findCommentNode(insertionPoint);
 
@@ -56,8 +56,6 @@ export function ThemeSwitcherProvider({
             linkElement,
             insertionPointElement.nextSibling
           );
-        } else {
-          throw new Error('Insertion point is not in the DOM.');
         }
       } else {
         return document.head.appendChild(linkElement);
@@ -78,15 +76,15 @@ export function ThemeSwitcherProvider({
       if (themeMap[theme]) {
         setStatus(Status.loading);
 
-        const linkElement = document.createElement('link');
-        linkElement.type = 'text/css';
-        linkElement.rel = 'stylesheet';
-        linkElement.id = id;
-        linkElement.href = themeMap[theme];
-
-        linkElement.onload = () => {
-          setStatus(Status.loaded);
-        };
+        const linkElement = createLinkElement({
+          type: 'text/css',
+          rel: 'stylesheet',
+          id: id,
+          href: themeMap[theme],
+          onload: () => {
+            setStatus(Status.loaded);
+          },
+        });
 
         insertStyle(linkElement);
         setCurrentTheme(theme);

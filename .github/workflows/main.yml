@@ -1,0 +1,19 @@
+name: Example workflow for Codecov
+on: [push, pull_request]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Install Modules
+      - run: yarn
+
+      - name: Run tests
+      - run: yarn test
+
+      - name: Upload coverage to Codecov
+        uses: ./
+        with:
+          flags: unittest
+          name: codecov-1
