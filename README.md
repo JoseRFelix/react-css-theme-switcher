@@ -13,10 +13,8 @@
    <a href="http://makeapullrequest.com" target="_blank">
     <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" />
   </a>
-  <a href="build" target="_blank">
-    <img alt="Build Status" src="build-badge" />
-  </a>
 </p>
+[![Build Status][build-badge]][build]
 
 > 💫 Switch between CSS themes using React
 
