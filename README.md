@@ -25,7 +25,7 @@
 
 ## Usage
 
-Import ThemeSwitcherProvider and pass a theme object with the name of the theme and the path to the css (normally,public folder).
+Import ThemeSwitcherProvider and pass a theme object with the name of the theme and the path to the CSS (normally, public folder).
 
 ```jsx
 import React from 'react';
@@ -78,7 +78,7 @@ const Component = () => {
 
 ### Avoiding CSS Override
 
-react-css-theme-switcher provided a way to avoid collision with other stylesheets or appended styles providing a where to inject the styles. To achieve this add an HTML comment like `<!--inject-styles-here-->` and then provide `'inject-styles-here'` in the insertionPoint prop in `ThemeSwitcherProvider`.
+react-css-theme-switcher provides a way to avoid collision with other stylesheets or appended styles providing a where to inject the styles. To achieve this add an HTML comment like `<!--inject-styles-here-->` and then provide `'inject-styles-here'` in the insertionPoint prop in `ThemeSwitcherProvider`.
 
 ```html
 <!DOCTYPE html>
