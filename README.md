@@ -1,4 +1,6 @@
-<h1 align="center">react-css-theme-switcher</h1>
+<div align="center">
+  <h1>React CSS Theme Switcher</h1>
+</div>
 <p>
   <a href="https://www.npmjs.com/package/react-css-theme-switcher" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/react-css-theme-switcher.svg">
@@ -23,6 +25,18 @@
 
 - node >=10
 
+## Installation
+
+```shell
+npm i react-css-theme-switcher
+```
+
+or with Yarn:
+
+```shell
+yarn add react-css-theme-switcher
+```
+
 ## Usage
 
 Import ThemeSwitcherProvider and pass a theme object with the names of the themes and their respective paths to the CSS stylesheet (normally, public folder).
@@ -40,7 +54,7 @@ const themes = {
 
 const App = () => {
   return (
-    <ThemeSwitcherProvider defaultTheme='light' themeMap={themes}>
+    <ThemeSwitcherProvider defaultTheme="light" themeMap={themes}>
       <Component />
     </ThemeSwitcherProvider>
   );
@@ -76,14 +90,14 @@ const Component = () => {
 };
 ```
 
-### Avoiding CSS Override
+### CSS Injection Order
 
 react-css-theme-switcher provides a way to avoid collision with other stylesheets or appended styles by providing where to inject the styles. To achieve this, add an HTML comment like `<!--inject-styles-here-->` somewhere on the head and then provide `'inject-styles-here'` or your custom name in the insertionPoint prop in `ThemeSwitcherProvider`.
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
-  <head>    
+  <head>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
@@ -100,7 +114,7 @@ react-css-theme-switcher provides a way to avoid collision with other stylesheet
   </head>
 
   <body>
-    <div id="root"></div> 
+    <div id="root"></div>
   </body>
 </html>
 ```
@@ -108,7 +122,11 @@ react-css-theme-switcher provides a way to avoid collision with other stylesheet
 ```jsx
 const App = () => {
   return (
-    <ThemeSwitcherProvider defaultTheme='light' insertionPoint='inject-styles-here' themeMap={themes}>
+    <ThemeSwitcherProvider
+      defaultTheme="light"
+      insertionPoint="inject-styles-here"
+      themeMap={themes}
+    >
       <Component />
     </ThemeSwitcherProvider>
   );
@@ -120,8 +138,9 @@ const App = () => {
 ### ThemeSwitcherProvider
 
 #### Props
+
 | Name           | Type   | Default value       | Description                                                                                                                                                                                                                         |
-|----------------|--------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------- | ------ | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | attr           | String | data-theme          | Attribute name for that will be appended to the body tag. Its value will be the current theme name.                                                                                                                                 |
 | defaultTheme   | String |                     | Default theme to load on mount. Must be in themeMap                                                                                                                                                                                 |
 | id             | String | current-theme-style | Id of the current selected CSS.                                                                                                                                                                                                     |
@@ -133,12 +152,11 @@ const App = () => {
 #### Returns
 
 | Name         | Type                                    | Default value | Description                                                                                     |
-|--------------|-----------------------------------------|---------------|-------------------------------------------------------------------------------------------------|
+| ------------ | --------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------- |
 | currentTheme | String or Undefined                     | undefined     | Current selected theme                                                                          |
 | themes       | Object                                  | themeMap keys | All themes supplied in the themeMap.                                                            |
 | switcher     | ({ theme }: { theme: string }) => void; | Function      | Function to change themes.                                                                      |
 | status       | enum('idle', 'loading', 'loaded')       | idle          | Current load status of the selected stylesheet. Useful to prevent flicker when changing themes. |
-
 
 ## Contributors
 

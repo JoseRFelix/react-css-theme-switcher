@@ -1,4 +1,6 @@
 {
+  "name": "react-css-theme-switcher",
+  "description": "Switch between CSS themes using React",
   "version": "0.1.4",
   "license": "MIT",
   "main": "dist/index.js",
@@ -19,9 +21,13 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build"
   },
-  "peerDependencies": {
-    "react": ">=16"
-  },
+  "keywords": [
+    "react",
+    "ui",
+    "themes",
+    "switcher",
+    "css"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -33,10 +39,19 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-css-theme-switcher",
-  "description": "Switch between CSS themes using React",
-  "author": "Jfelix61",
+  "author": "Jose R. Felix (https://jfelix.info)",
   "module": "dist/react-theme-switcher.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JoseRFelix/react-css-theme-switcher"
+  },
+  "bugs": {
+    "url": "https://github.com/JoseRFelix/react-css-theme-switcher/issues"
+  },
+  "homepage": "https://github.com/JoseRFelix/react-css-theme-switcher#readme",
+  "peerDependencies": {
+    "react": ">=16"
+  },
   "devDependencies": {
     "@testing-library/react-hooks": "^3.3.0",
     "@types/react": "^16.9.38",
