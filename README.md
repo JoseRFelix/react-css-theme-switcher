@@ -15,7 +15,7 @@
   <a href="http://makeapullrequest.com" target="_blank">
     <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" />
   </a>
-  <img alt="Bundle size" src="https://badgen.net/bundlephobia/minzip/react" />
+  <img alt="Bundle size" src="https://badgen.net/bundlephobia/minzip/react-css-theme-switcher" />
  
 </p>
 
@@ -140,7 +140,7 @@ const App = () => {
 #### Props
 
 | Name           | Type   | Default value       | Description                                                                                                                                                                                                                         |
-| -------------- | ------ | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------|--------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | attr           | String | data-theme          | Attribute name for that will be appended to the body tag. Its value will be the current theme name.                                                                                                                                 |
 | defaultTheme   | String |                     | Default theme to load on mount. Must be in themeMap                                                                                                                                                                                 |
 | id             | String | current-theme-style | Id of the current selected CSS.                                                                                                                                                                                                     |
@@ -152,7 +152,7 @@ const App = () => {
 #### Returns
 
 | Name         | Type                                    | Default value | Description                                                                                     |
-| ------------ | --------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------- |
+|--------------|-----------------------------------------|---------------|-------------------------------------------------------------------------------------------------|
 | currentTheme | String or Undefined                     | undefined     | Current selected theme                                                                          |
 | themes       | Object                                  | themeMap keys | All themes supplied in the themeMap.                                                            |
 | switcher     | ({ theme }: { theme: string }) => void; | Function      | Function to change themes.                                                                      |
