@@ -9,7 +9,7 @@
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
-  <a href="https://codecov.io/gh/Jfelix61/react-css-theme-switcher" target="_blank">
+  <a href="https://codecov.io/gh/JoseRFelix/react-css-theme-switcher" target="_blank">
     <img alt="codecov" src="https://codecov.io/gh/Jfelix61/react-css-theme-switcher/branch/master/graph/badge.svg" />
   </a>
   <a href="http://makeapullrequest.com" target="_blank">
