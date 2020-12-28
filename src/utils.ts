@@ -21,7 +21,7 @@ export function isElement(o: any) {
 
 export function arrayToObject(array: string[]): Record<any, string> {
   const obj: Record<any, string> = {};
-  array.forEach((el) => (obj[el] = el));
+  array.forEach(el => (obj[el] = el));
   return obj;
 }
 

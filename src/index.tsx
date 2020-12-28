@@ -108,12 +108,12 @@ export function ThemeSwitcherProvider({
     if (defaultTheme) {
       switcher({ theme: defaultTheme });
     }
-  }, [defaultTheme]);
+  }, [defaultTheme, switcher]);
 
   React.useEffect(() => {
     const themes = Object.keys(themeMap);
 
-    themes.map((theme) => {
+    themes.map(theme => {
       const themeAssetId = `theme-prefetch-${theme}`;
       if (!document.getElementById(themeAssetId)) {
         const stylePrefetch = document.createElement('link');
