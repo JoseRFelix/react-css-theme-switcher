@@ -170,7 +170,7 @@ describe('Theme switcher', () => {
     );
   });
 
-  it('should insert styles on insertionPoint', () => {
+  it('should insert styles on comment insertionPoint', () => {
     const insertionPoint = 'insert-style-here';
 
     document.head.insertBefore(
@@ -211,7 +211,46 @@ describe('Theme switcher', () => {
     });
   });
 
-  it('should warn when insertionPoint does not exist', () => {
+  it('should insert styles on DOM insertionPoint', () => {
+    const insertionPoint = document.createElement('noscript');
+    insertionPoint.id = 'style-insertion-point';
+
+    document.head.insertBefore(insertionPoint, document.head.firstElementChild);
+
+    const otherElement = document.createElement('meta');
+    document.head.append(otherElement);
+    renderHook(() => useThemeSwitcher(), {
+      wrapper: Wrapper({
+        themeMap: themes,
+        defaultTheme: 'dark',
+        insertionPoint: document.getElementById(insertionPoint.id) ?? undefined,
+      }),
+    });
+
+    function allPreviousElements(element: Element | null) {
+      const previousElements: HTMLLinkElement[] = [];
+      while ((element = element!.previousElementSibling))
+        previousElements.push(element as HTMLLinkElement);
+
+      return previousElements;
+    }
+
+    document.getElementById(insertionPoint.id)?.remove();
+    const element = document.head.lastElementChild;
+    const previousElements = allPreviousElements(element);
+
+    previousElements.forEach(elem => {
+      const conditions = [
+        'current-theme-style',
+        'theme-prefetch-dark',
+        'theme-prefetch-light',
+      ];
+      const found = conditions.some(condition => elem.id === condition);
+      expect(found).toBeTruthy();
+    });
+  });
+
+  it('should warn when comment insertionPoint does not exist', () => {
     renderHook(() => useThemeSwitcher(), {
       wrapper: Wrapper({
         themeMap: themes,
@@ -224,6 +263,22 @@ describe('Theme switcher', () => {
     // @ts-ignore
     expect(console.warn.mock.calls[0][0]).toMatchInlineSnapshot(
       `"Insertion point 'not-in-dom-insertion-point' does not exist. Be sure to add comment on head and that it matches the insertionPoint"`
+    );
+  });
+
+  it('should warn when DOM insertionPoint does not exist', () => {
+    renderHook(() => useThemeSwitcher(), {
+      wrapper: Wrapper({
+        themeMap: themes,
+        defaultTheme: 'dark',
+        insertionPoint: document.getElementById('not-in-dom-insertion-point'),
+      }),
+    });
+
+    expect(console.warn).toHaveBeenCalledTimes(3);
+    // @ts-ignore
+    expect(console.warn.mock.calls[0][0]).toMatchInlineSnapshot(
+      `"Insertion point 'null' does not exist. Be sure to add comment on head and that it matches the insertionPoint"`
     );
   });
 

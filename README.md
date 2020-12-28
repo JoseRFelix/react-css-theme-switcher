@@ -133,6 +133,50 @@ const App = () => {
 };
 ```
 
+### HTML Element Insertion Point
+
+Some libraries and frameworks make it hard to use comments in head for handling injection order. To solve this issue, you can provide a DOM element as the insertion point. Take for example a `<noscript></noscript>` element:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+      * {
+        color: inherit;
+      }
+
+      html {
+        font-family: 'Poppins', sans-serif;
+      }
+    </style>
+    <noscript id="inject-styles-here"></noscript>
+
+    <title>Playground</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+```
+
+```jsx
+const App = () => {
+  return (
+    <ThemeSwitcherProvider
+      defaultTheme="light"
+      insertionPoint={document.getElementById('inject-styles-here')}
+      themeMap={themes}
+    >
+      <Component />
+    </ThemeSwitcherProvider>
+  );
+};
+```
+
 ## API
 
 ### ThemeSwitcherProvider

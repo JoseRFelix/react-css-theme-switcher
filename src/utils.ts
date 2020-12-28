@@ -9,9 +9,19 @@ export function findCommentNode(comment: string) {
   return null;
 }
 
+export function isElement(o: any) {
+  return typeof HTMLElement === 'object'
+    ? o instanceof HTMLElement //DOM2
+    : o &&
+        typeof o === 'object' &&
+        o !== null &&
+        o.nodeType === 1 &&
+        typeof o.nodeName === 'string';
+}
+
 export function arrayToObject(array: string[]): Record<any, string> {
   const obj: Record<any, string> = {};
-  array.forEach(el => (obj[el] = el));
+  array.forEach((el) => (obj[el] = el));
   return obj;
 }
 

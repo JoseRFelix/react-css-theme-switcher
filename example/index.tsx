@@ -82,7 +82,7 @@ const themes = {
 const App = () => {
   return (
     <ThemeSwitcherProvider
-      insertionPoint="inject-styles-here"
+      insertionPoint={document.getElementById('inject-styles-here')}
       themeMap={themes}
       defaultTheme={'dark'}
     >

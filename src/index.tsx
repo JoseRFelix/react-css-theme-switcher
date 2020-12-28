@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { findCommentNode, arrayToObject, createLinkElement } from './utils';
+import {
+  findCommentNode,
+  arrayToObject,
+  createLinkElement,
+  isElement,
+} from './utils';
 
 enum Status {
   idle = 'idle',
@@ -21,7 +26,7 @@ const ThemeSwitcherContext = React.createContext<
 interface Props {
   themeMap: Record<any, string>;
   children?: React.ReactNode;
-  insertionPoint?: string;
+  insertionPoint?: string | HTMLElement | null;
   id?: string;
   defaultTheme?: string;
   attr?: string;
@@ -40,8 +45,10 @@ export function ThemeSwitcherProvider({
 
   const insertStyle = React.useCallback(
     (linkElement: HTMLElement): HTMLElement | void => {
-      if (insertionPoint) {
-        const insertionPointElement = findCommentNode(insertionPoint);
+      if (insertionPoint || insertionPoint === null) {
+        const insertionPointElement = isElement(insertionPoint)
+          ? (insertionPoint as HTMLElement)
+          : findCommentNode(insertionPoint as string);
 
         if (!insertionPointElement) {
           console.warn(
@@ -106,7 +113,7 @@ export function ThemeSwitcherProvider({
   React.useEffect(() => {
     const themes = Object.keys(themeMap);
 
-    themes.map(theme => {
+    themes.map((theme) => {
       const themeAssetId = `theme-prefetch-${theme}`;
       if (!document.getElementById(themeAssetId)) {
         const stylePrefetch = document.createElement('link');
