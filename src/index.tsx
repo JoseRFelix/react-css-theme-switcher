@@ -108,7 +108,8 @@ export function ThemeSwitcherProvider({
     if (defaultTheme) {
       switcher({ theme: defaultTheme });
     }
-  }, [defaultTheme, switcher]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [defaultTheme]);
 
   React.useEffect(() => {
     const themes = Object.keys(themeMap);
