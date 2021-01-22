@@ -75,20 +75,24 @@ export function ThemeSwitcherProvider({
     ({ theme }: { theme: string }) => {
       if (theme === currentTheme) return;
 
-      const previousStyle = document.getElementById(id);
-      if (previousStyle) {
-        previousStyle.remove();
-      }
-
       if (themeMap[theme]) {
         setStatus(Status.loading);
 
         const linkElement = createLinkElement({
           type: 'text/css',
           rel: 'stylesheet',
-          id: id,
+          id: id + '_temp',
           href: themeMap[theme],
           onload: () => {
+            const previousStyle = document.getElementById(id);
+            if (previousStyle) {
+              previousStyle.remove();
+            }
+
+            const nextStyle = document.getElementById(id + '_temp');
+            if (nextStyle) {
+              nextStyle.setAttribute('id', id);
+            }
             setStatus(Status.loaded);
           },
         });
