@@ -40,7 +40,7 @@
     "trailingComma": "es5"
   },
   "author": "Jose R. Felix (https://jfelix.info)",
-  "module": "dist/react-theme-switcher.esm.js",
+  "module": "dist/react-css-theme-switcher.esm.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/JoseRFelix/react-css-theme-switcher"
