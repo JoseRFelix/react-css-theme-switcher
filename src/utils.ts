@@ -9,7 +9,7 @@ export function findCommentNode(comment: string) {
   return null;
 }
 
-export function isElement(o: any) {
+export function isElement(o: any): Boolean {
   return typeof HTMLElement === 'object'
     ? o instanceof HTMLElement //DOM2
     : o &&
