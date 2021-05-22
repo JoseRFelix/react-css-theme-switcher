@@ -40,7 +40,7 @@ describe('Theme switcher', () => {
   it('should add pre-rendered css themes, and be able to switch between them', async () => {
     expect(document.querySelectorAll('link[rel="prefetch"]').length).toBe(0);
 
-    const { result, wait } = renderHook(() => useThemeSwitcher(), {
+    const { result, waitFor } = renderHook(() => useThemeSwitcher(), {
       wrapper: Wrapper(),
     });
 
@@ -62,16 +62,16 @@ describe('Theme switcher', () => {
 
     expect(result.current.status).toBe('loading');
 
-    await wait(
+    act(() => {
+      mockedCreateLinkElement.mock.calls[0][0].onload();
+    });
+
+    await waitFor(
       () =>
         !!document.querySelector(
           'link[href="./dark.css"][id="current-theme-style"]'
         )
     );
-
-    act(() => {
-      mockedCreateLinkElement.mock.calls[0][0].onload();
-    });
 
     expect(document.querySelector('body[data-theme="dark"]')).toBeTruthy();
     expect(result.current.status).toBe('loaded');
@@ -91,16 +91,16 @@ describe('Theme switcher', () => {
 
     expect(result.current.status).toBe('loading');
 
-    await wait(
+    act(() => {
+      mockedCreateLinkElement.mock.calls[1][0].onload();
+    });
+
+    await waitFor(
       () =>
         !!document.querySelector(
           'link[href="./light.css"][id="current-theme-style"]'
         )
     );
-
-    act(() => {
-      mockedCreateLinkElement.mock.calls[1][0].onload();
-    });
 
     expect(document.querySelector('body[data-theme="light"]')).toBeTruthy();
     expect(result.current.status).toBe('loaded');
@@ -116,20 +116,20 @@ describe('Theme switcher', () => {
   });
 
   it('should be able to add default theme', async () => {
-    const { result, wait } = renderHook(() => useThemeSwitcher(), {
+    const { result, waitFor } = renderHook(() => useThemeSwitcher(), {
       wrapper: Wrapper({ themeMap: themes, defaultTheme: 'dark' }),
     });
 
-    await wait(
+    act(() => {
+      mockedCreateLinkElement.mock.calls[0][0].onload();
+    });
+
+    await waitFor(
       () =>
         !!document.querySelector(
           'link[href="./dark.css"][id="current-theme-style"]'
         )
     );
-
-    act(() => {
-      mockedCreateLinkElement.mock.calls[0][0].onload();
-    });
 
     expect(result.current).toEqual({
       currentTheme: 'dark',
@@ -146,7 +146,7 @@ describe('Theme switcher', () => {
     const customId = 'custom-id';
     const customAttr = 'custom-attr';
 
-    const { wait } = renderHook(() => useThemeSwitcher(), {
+    const { waitFor } = renderHook(() => useThemeSwitcher(), {
       wrapper: Wrapper({
         themeMap: themes,
         defaultTheme: 'dark',
@@ -155,7 +155,11 @@ describe('Theme switcher', () => {
       }),
     });
 
-    await wait(
+    act(() => {
+      mockedCreateLinkElement.mock.calls[0][0].onload();
+    });
+
+    await waitFor(
       () => !!document.querySelector(`link[href="./dark.css"][id=${customId}]`)
     );
 
@@ -187,6 +191,10 @@ describe('Theme switcher', () => {
         defaultTheme: 'dark',
         insertionPoint,
       }),
+    });
+
+    act(() => {
+      mockedCreateLinkElement.mock.calls[0][0].onload();
     });
 
     function allPreviousElements(element: Element | null) {
@@ -225,6 +233,10 @@ describe('Theme switcher', () => {
         defaultTheme: 'dark',
         insertionPoint: document.getElementById(insertionPoint.id) ?? undefined,
       }),
+    });
+
+    act(() => {
+      mockedCreateLinkElement.mock.calls[0][0].onload();
     });
 
     function allPreviousElements(element: Element | null) {
@@ -283,7 +295,7 @@ describe('Theme switcher', () => {
   });
 
   it('should append to head even when insertionPoint does not exist', async () => {
-    const { wait } = renderHook(() => useThemeSwitcher(), {
+    const { waitFor } = renderHook(() => useThemeSwitcher(), {
       wrapper: Wrapper({
         themeMap: themes,
         defaultTheme: 'dark',
@@ -291,7 +303,11 @@ describe('Theme switcher', () => {
       }),
     });
 
-    await wait(
+    act(() => {
+      mockedCreateLinkElement.mock.calls[0][0].onload();
+    });
+
+    await waitFor(
       () =>
         !!document.querySelector(
           'link[href="./dark.css"][id="current-theme-style"]'
