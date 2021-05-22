@@ -1,7 +1,7 @@
 {
   "name": "react-css-theme-switcher",
   "description": "Switch between CSS themes using React",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
