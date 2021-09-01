@@ -70,8 +70,8 @@ const Component = () => {
   const { switcher, themes, currentTheme, status } = useThemeSwitcher();
   const [isDarkMode, setIsDarkMode] = React.useState(false);
 
-  if (status === 'loading') {
-    return <div>Loading styles...</div>;
+  if (status !== 'loaded') {
+    return null;
   }
 
   const toggleDarkMode = () => {
