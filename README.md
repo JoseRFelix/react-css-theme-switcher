@@ -1,23 +1,13 @@
 <div align="center">
   <h1>React CSS Theme Switcher</h1>
 </div>
-<p>
-  <a href="https://www.npmjs.com/package/react-css-theme-switcher" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/react-css-theme-switcher.svg">
-  </a>
-  <img src="https://img.shields.io/badge/node-%3E%3D10-blue.svg" />
-  <a href="#" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-  </a>
-  <a href="https://codecov.io/gh/JoseRFelix/react-css-theme-switcher" target="_blank">
-    <img alt="codecov" src="https://codecov.io/gh/JoseRFelix/react-css-theme-switcher/branch/master/graph/badge.svg" />
-  </a>
-  <a href="http://makeapullrequest.com" target="_blank">
-    <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" />
-  </a>
-  <img alt="Bundle size" src="https://badgen.net/bundlephobia/minzip/react-css-theme-switcher" />
- 
-</p>
+
+[![npm version](https://img.shields.io/npm/v/react-css-theme-switcher.svg)](https://www.npmjs.com/package/react-css-theme-switcher)
+![node](https://img.shields.io/node/v/react-css-theme-switcher.svg)
+[![license](https://img.shields.io/npm/l/react-css-theme-switcher.svg)](https://github.com/JoseRFelix/react-css-theme-switcher/blob/master/LICENSE)
+[![codecov](https://img.shields.io/codecov/c/github/JoseRFelix/react-css-theme-switcher/master)](https://codecov.io/gh/JoseRFelix/react-css-theme-switcher)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
+[![Bundle size](https://img.shields.io/bundlephobia/minzip/react-css-theme-switcher)](https://bundlephobia.com/package/react-css-theme-switcher)
 
 > 💫 Switch between CSS themes using React
 
@@ -211,7 +201,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://jfelix.info"><img src="https://avatars1.githubusercontent.com/u/21092519?s=460&u=55be9996a2652c79880c62ad50d06e17639456e8&v=4" width="100px;" alt=""/><br /><sub><b>Jose Felix</b></sub></a><br /><a href="https://github.com/Jfelix61/react-theme-switcher/commits?author=Jfelix61" title="Code">💻</a> <a href="https://github.com/Jfelix61/react-theme-switcher/commits?author=Jfelix61" title="Documentation">📖</a> <a href="https://github.com/Jfelix61/react-theme-switcher/commits?author=Jfelix61" title="Tests">⚠️</a></td>    
+    <td align="center"><a href="https://jfelix.info"><img src="https://avatars1.githubusercontent.com/u/21092519?s=460&u=55be9996a2652c79880c62ad50d06e17639456e8&v=4" width="100px;" alt=""/><br /><sub><b>Jose Felix</b></sub></a><br /><a href="https://github.com/JoseRFelix/react-css-theme-switcher/commits?author=JoseRFelix" title="Code">💻</a> <a href="https://github.com/JoseRFelix/react-css-theme-switcher/commits?author=JoseRFelix" title="Documentation">📖</a> <a href="https://github.com/JoseRFelix/react-css-theme-switcher/commits?author=JoseRFelix" title="Tests">⚠️</a></td>
   </tr>  
 </table>
 
